@@ -27,4 +27,4 @@ air_quality_renamed  = air_quality.rename( # rename the data columns to the corr
 
 air_quality_renamed = air_quality_renamed.rename(columns=str.lower)
 
-print(air_quality_renamed.head())
+# print(air_quality_renamed.head())
