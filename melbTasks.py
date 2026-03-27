@@ -37,17 +37,35 @@ subdata1.loc[subdata1['Bathroom'] > 2, 'Size'] = 'big'
 subdata1.loc[subdata1['Bathroom'] <= 2, 'Size'] = 'small'
 # print(new_gr.head(10))
 
-values = data['Suburb'].unique()
+# values = data['Suburb'].unique()
 # stowrzyć nowy data frame, bedzie mial nazyw ich, a w drugiej ilosc ich wystąpień
 
 subdata3 = data[["Suburb"]]
 
-values = data['Suburb'].unique()
-wynik = pd.DataFrame(columns=['Suburb', 'Count'])
+# values = data['Suburb'].unique()
+# wynik = pd.DataFrame(values, columns=['Suburb'])
+#
+# for i in wynik.Suburb:
+#     wynik.loc[wynik.Suburb == i, 'number'] = len(data.loc[data.Suburb == i])
 
-for i, suburb in enumerate(values):
-    ilosc = data.loc[data.Suburb == suburb].shape[0]
-    wynik.loc[i, 'Suburb'] = suburb
-    wynik.loc[i, 'Count'] = ilosc
+# values = data['Suburb'].unique()
+# wynik = pd.DataFrame(columns=['Suburb', 'Count'])
+#
+# for i, suburb in enumerate(values):
+#     ilosc = data.loc[data.Suburb == suburb].shape[0]
+#     wynik.loc[i, 'Suburb'] = suburb
+#     wynik.loc[i, 'Count'] = ilosc
 
-print(wynik.head(10))
+# print(wynik.head(10))
+
+# only1bath0car2 = only1bath0car.reindex(range(0, len(only1bath0car)), fill_vallue=0)
+
+#1. Sprawdzic i zobaczyc jak za pomoca loca zrobic cos w jednej linijce bez petli
+#2. Sprobowac obliczyc zakres cen jaka jest rozncica,
+# srednia roznica cen miedzy domami z jedno lub zero lazieniek, dwa lub wiecej
+
+#1. Sprawdzic i zobaczyc jak za pomoca loca zrobic cos w jednej linijce bez petli
+values_df = pd.DataFrame(data['Suburb'].unique(), columns=['Suburb'])
+counts = data.loc[:, ['Suburb']].groupby('Suburb').size().reset_index(name='Count')
+
+print(values_df.merge(counts, on='Suburb', how='left'))

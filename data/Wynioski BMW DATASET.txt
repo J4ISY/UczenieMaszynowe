@@ -1,0 +1,5 @@
+Dataset, dotyczący sprzedaży BMW, jest możliwy do wykorzystania,
+ponieważ zawiera dane numeryczne takie chociażby jak: liczba sprzedanych pojazdów, śr. cena czy też rok produkcji.
+Dataset BMW również zawiera dane oparte o konkretne modele samochodów, które również możemy wykorzystać
+np. do sprawdzenia ile danego modelu X zostało sprzedanego w danym roku Y.
+Dla czytelniejszego wglądu, zostały dodane kolory oraz tytuły. Za pomocą .dropna również usuwałem brakujące wartości.
